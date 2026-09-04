@@ -29,7 +29,6 @@ import org.openide.util.Lookup;
 import org.openide.util.lookup.Lookups;
 import org.openide.util.lookup.ProxyLookup;
 
-
 public class HMIProjectImpl implements Project {
 
     private final FileObject fo;
@@ -56,9 +55,9 @@ public class HMIProjectImpl implements Project {
                 new HMIProjectLogicalViewImpl(this),
                 new HMISubProjectProviderImpl(this),
                 //TODO: Crear estos modulos dentro del parent
-                new HMISubProjectLanguageProviderImpl(this),            
-//                new HMISubprojectEstructurasProviderImpl(this),
-//                new HMISubprojectVersionManage(this)
+                new HMISubProjectLanguageProviderImpl(this),
+                new HMISubprojectEstructurasProviderImpl(this),
+                new HMISubprojectVersionsManageProviderImpl(this)
 
             });
 
@@ -155,7 +154,7 @@ public class HMIProjectImpl implements Project {
             public Action[] getActions(boolean arg0) {
                 return new Action[]{
                     //this.project.getProjectDirectory().isFolder() && this.project.getProjectDirectory().
-                    
+
                     CommonProjectActions.copyProjectAction(),
                     CommonProjectActions.deleteProjectAction(),
                     CommonProjectActions.closeProjectAction(),

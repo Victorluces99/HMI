@@ -4,8 +4,7 @@
  */
 package com.prueba.hmiproject.impl;
 
-
-import com.prueba.hmisubprojectestructuras.HMISubprojectEstructurasImpl;
+import com.prueba.hmisubprojectversionsmanage.HMISubprojectVersionsManageImpl;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedHashSet;
@@ -17,11 +16,10 @@ import org.netbeans.spi.project.SubprojectProvider;
 import org.openide.filesystems.FileObject;
 import org.openide.util.Exceptions;
 
+public class HMISubprojectVersionsManageProviderImpl implements SubprojectProvider{
+private final Project project;
 
-public class HMISubprojectEstructurasProviderImpl implements SubprojectProvider{
-    private final Project project;
-
-    public HMISubprojectEstructurasProviderImpl(Project project) {
+    public HMISubprojectVersionsManageProviderImpl(Project project) {
         this.project = project;
     }
 
@@ -32,12 +30,13 @@ public class HMISubprojectEstructurasProviderImpl implements SubprojectProvider{
 
     @Override
     public void addChangeListener(ChangeListener cl) {
+        
     }
 
     @Override
     public void removeChangeListener(ChangeListener cl) {
+        
     }
-
     private Set loadProjects(FileObject dir) {
         Set<Project> result = new LinkedHashSet<>();
 
@@ -47,8 +46,8 @@ public class HMISubprojectEstructurasProviderImpl implements SubprojectProvider{
             }
             try {
                 Project p = ProjectManager.getDefault().findProject(child);
-                if (p instanceof HMISubprojectEstructurasImpl) {
-                    result.add((HMISubprojectEstructurasImpl) p);
+                if (p instanceof HMISubprojectVersionsManageImpl) {
+                    result.add((HMISubprojectVersionsManageImpl) p);
                 }
             } catch (IOException | IllegalArgumentException ex) {
                 Exceptions.printStackTrace(ex);

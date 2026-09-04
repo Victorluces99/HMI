@@ -25,6 +25,7 @@
         <module>HMIPanelSubProjectCategory</module>
         <module>HMISubprojectLanguage</module>
         <module>HMISubprojectEstructuras</module>
+        <module>HMISubprojectVersionsManage</module>
     </modules>
 
     <build>

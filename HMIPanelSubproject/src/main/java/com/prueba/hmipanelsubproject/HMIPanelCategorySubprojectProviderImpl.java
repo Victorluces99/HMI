@@ -18,10 +18,7 @@ import org.netbeans.spi.project.SubprojectProvider;
 import org.openide.filesystems.FileObject;
 import org.openide.util.Exceptions;
 
-/**
- *
- * @author luis
- */
+
 public class HMIPanelCategorySubprojectProviderImpl implements SubprojectProvider {
 
     public static final String CATEGORY_SUBPROJECT_FILE = "category.cfg";
