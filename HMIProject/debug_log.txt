@@ -1,0 +1,633 @@
+Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+Maven home: C:\Program Files\maven
+Java version: 21.0.12.1, vendor: BellSoft, runtime: C:\Program Files\BellSoft\LibericaJDK-21
+Default locale: es_VE, platform encoding: UTF-8
+OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.graph < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.util < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.event.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] Created adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gaecv, file-gav, file-hgaecv, file-hgav, file-static, gaecv, gav, static]
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from C:\Program Files\maven\conf\settings.xml
+[DEBUG] Reading user settings from C:\Users\luis\.m2\settings.xml
+[DEBUG] Reading global toolchains from C:\Program Files\maven\conf\toolchains.xml
+[DEBUG] Reading user toolchains from C:\Users\luis\.m2\toolchains.xml
+[DEBUG] Using local repository at C:\Users\luis\.m2\repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for C:\Users\luis\.m2\repository
+[INFO] Scanning for projects...
+[DEBUG] Creating adapter using nameMapper 'gaecv' and factory 'rwlock-local'
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=567900, ConflictMarker.markTime=78600, ConflictMarker.nodeCount=54, ConflictIdSorter.graphTime=302800, ConflictIdSorter.topsortTime=239600, ConflictIdSorter.conflictIdCount=33, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3343600, ConflictResolver.conflictItemCount=54, DfDependencyCollector.collectTime=207946200, DfDependencyCollector.transformTime=6702900}
+[DEBUG] org.apache.netbeans.utilities:nbm-maven-plugin:jar:14.5
+[DEBUG]    org.slf4j:slf4j-api:jar:1.7.36:compile
+[DEBUG]    org.apache.maven:maven-archiver:jar:3.6.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.29:compile
+[DEBUG]       org.codehaus.plexus:plexus-xml:jar:3.0.2:compile
+[DEBUG]    org.apache.ant:ant:jar:1.10.17:compile
+[DEBUG]       org.apache.ant:ant-launcher:jar:1.10.17:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.6.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-archiver:jar:4.11.0:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile (version managed from default)
+[DEBUG]       org.apache.commons:commons-compress:jar:1.28.0:compile (version managed from default)
+[DEBUG]          commons-codec:commons-codec:jar:1.19.0:compile
+[DEBUG]          org.apache.commons:commons-lang3:jar:3.18.0:compile
+[DEBUG]       commons-io:commons-io:jar:2.21.0:compile (version managed from default)
+[DEBUG]       org.tukaani:xz:jar:1.11:runtime
+[DEBUG]       com.github.luben:zstd-jni:jar:1.5.7-6:runtime
+[DEBUG]    org.codehaus.plexus:plexus-io:jar:3.6.0:compile
+[DEBUG]    org.apache.netbeans.utilities:nbm-maven-harness:jar:14.5:compile
+[DEBUG]    org.apache.netbeans.utilities:nb-shared:jar:14.5:compile
+[DEBUG]       org.apache.maven:maven-plugin-api:jar:3.9.15:compile (version managed from default)
+[DEBUG]          org.apache.maven:maven-model:jar:3.9.15:compile (version managed from default)
+[DEBUG]          org.apache.maven:maven-artifact:jar:3.9.15:compile (version managed from default)
+[DEBUG]          org.eclipse.sisu:org.eclipse.sisu.plexus:jar:1.0.0:compile
+[DEBUG]             org.codehaus.plexus:plexus-component-annotations:jar:2.2.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.9.0:compile
+[DEBUG]    org.netbeans.external:updater:jar:RELEASE280:compile
+[DEBUG]    org.apache.maven.resolver:maven-resolver-util:jar:1.9.27:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.9.27:compile (version managed from default)
+[DEBUG]    org.apache.maven.shared:maven-dependency-analyzer:jar:1.17.0:compile
+[DEBUG]       org.ow2.asm:asm:jar:9.9.1:compile (version managed from default)
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:3.5.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-build-api:jar:1.2.0:compile
+[DEBUG]          org.sonatype.plexus:plexus-build-api:jar:0.0.7:compile
+[DEBUG] Created new class realm extension>org.apache.netbeans.utilities:nbm-maven-plugin:14.5
+[DEBUG] Importing foreign packages into class realm extension>org.apache.netbeans.utilities:nbm-maven-plugin:14.5
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm extension>org.apache.netbeans.utilities:nbm-maven-plugin:14.5
+[DEBUG]   Included: org.apache.netbeans.utilities:nbm-maven-plugin:jar:14.5
+[DEBUG]   Included: org.apache.maven:maven-archiver:jar:3.6.6
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.29
+[DEBUG]   Included: org.codehaus.plexus:plexus-xml:jar:3.0.2
+[DEBUG]   Included: org.apache.ant:ant:jar:1.10.17
+[DEBUG]   Included: org.apache.ant:ant-launcher:jar:1.10.17
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.6.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:4.11.0
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.28.0
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.19.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.18.0
+[DEBUG]   Included: commons-io:commons-io:jar:2.21.0
+[DEBUG]   Included: org.tukaani:xz:jar:1.11
+[DEBUG]   Included: com.github.luben:zstd-jni:jar:1.5.7-6
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:3.6.0
+[DEBUG]   Included: org.apache.netbeans.utilities:nbm-maven-harness:jar:14.5
+[DEBUG]   Included: org.apache.netbeans.utilities:nb-shared:jar:14.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:2.2.0
+[DEBUG]   Included: org.netbeans.external:updater:jar:RELEASE280
+[DEBUG]   Included: org.apache.maven.shared:maven-dependency-analyzer:jar:1.17.0
+[DEBUG]   Included: org.ow2.asm:asm:jar:9.9.1
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:3.5.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-build-api:jar:1.2.0
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.7
+[DEBUG] Extension realms for project com.prueba:HMIProject:nbm:1.0-SNAPSHOT: [ClassRealm[extension>org.apache.netbeans.utilities:nbm-maven-plugin:14.5, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e]]
+[DEBUG] Created new class realm project>com.prueba:HMIProject:1.0-SNAPSHOT
+[DEBUG] Populating class realm project>com.prueba:HMIProject:1.0-SNAPSHOT
+[DEBUG] Looking up lifecycle mappings for packaging nbm from ClassRealm[project>com.prueba:HMIProject:1.0-SNAPSHOT, parent: ClassRealm[maven.api, parent: null]]
+[DEBUG] Could not find metadata org.apache.maven.plugins:maven-resources-plugin/maven-metadata.xml in local (C:\Users\luis\.m2\repository)
+[DEBUG] Skipped remote request for org.apache.maven.plugins:maven-resources-plugin/maven-metadata.xml, locally cached metadata up-to-date
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1
+org.apache.maven.plugin.PluginIncompatibleException: 
+The plugin org.apache.maven.plugins:maven-resources-plugin:4.0.0-beta-1 has unmet prerequisites: 
+	Required Maven version 4.0.0-beta-3 is not met by current version 3.9.16
+    at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:304)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+    at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:172)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+    at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+    Suppressed: java.lang.IllegalStateException: Required Maven version 4.0.0-beta-3 is not met by current version 3.9.16
+        at org.apache.maven.plugin.internal.MavenPluginMavenPrerequisiteChecker.accept (MavenPluginMavenPrerequisiteChecker.java:63)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.lambda$checkPrerequisites$0 (DefaultMavenPluginManager.java:292)
+        at java.lang.Iterable.forEach (Iterable.java:75)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:290)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+        at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:172)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+        at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+        at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+        at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+        at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+        at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+        at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-resources-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-resources-plugin
+[INFO] Selected plugin org.apache.maven.plugins:maven-resources-plugin:3.5.0
+[DEBUG] Resolved plugin version for org.apache.maven.plugins:maven-resources-plugin to 3.5.0 from repository central (https://repo.maven.apache.org/maven2, default, releases)
+[DEBUG] Could not find metadata org.apache.maven.plugins:maven-surefire-plugin/maven-metadata.xml in local (C:\Users\luis\.m2\repository)
+[DEBUG] Skipped remote request for org.apache.maven.plugins:maven-surefire-plugin/maven-metadata.xml, locally cached metadata up-to-date
+[DEBUG] Resolved plugin version for org.apache.maven.plugins:maven-surefire-plugin to 3.6.0-M1 from repository central (https://repo.maven.apache.org/maven2, default, releases)
+[DEBUG] Could not find metadata org.apache.maven.plugins:maven-install-plugin/maven-metadata.xml in local (C:\Users\luis\.m2\repository)
+[DEBUG] Skipped remote request for org.apache.maven.plugins:maven-install-plugin/maven-metadata.xml, locally cached metadata up-to-date
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2
+org.apache.maven.plugin.PluginIncompatibleException: 
+The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-2 has unmet prerequisites: 
+	Required Maven version 4.0.0-rc-2 is not met by current version 3.9.16
+    at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:304)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+    at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:172)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+    at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+    Suppressed: java.lang.IllegalStateException: Required Maven version 4.0.0-rc-2 is not met by current version 3.9.16
+        at org.apache.maven.plugin.internal.MavenPluginMavenPrerequisiteChecker.accept (MavenPluginMavenPrerequisiteChecker.java:63)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.lambda$checkPrerequisites$0 (DefaultMavenPluginManager.java:292)
+        at java.lang.Iterable.forEach (Iterable.java:75)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:290)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+        at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:172)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+        at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+        at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+        at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+        at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+        at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+        at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-install-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-install-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1
+org.apache.maven.plugin.PluginIncompatibleException: 
+The plugin org.apache.maven.plugins:maven-install-plugin:4.0.0-beta-1 has unmet prerequisites: 
+	Required Maven version 4.0.0-beta-3 is not met by current version 3.9.16
+    at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:304)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+    at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:207)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+    at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+    Suppressed: java.lang.IllegalStateException: Required Maven version 4.0.0-beta-3 is not met by current version 3.9.16
+        at org.apache.maven.plugin.internal.MavenPluginMavenPrerequisiteChecker.accept (MavenPluginMavenPrerequisiteChecker.java:63)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.lambda$checkPrerequisites$0 (DefaultMavenPluginManager.java:292)
+        at java.lang.Iterable.forEach (Iterable.java:75)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:290)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+        at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:207)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+        at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+        at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+        at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+        at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+        at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+        at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] Selected plugin org.apache.maven.plugins:maven-install-plugin:3.1.4
+[DEBUG] Resolved plugin version for org.apache.maven.plugins:maven-install-plugin to 3.1.4 from repository central (https://repo.maven.apache.org/maven2, default, releases)
+[DEBUG] Could not find metadata org.apache.maven.plugins:maven-deploy-plugin/maven-metadata.xml in local (C:\Users\luis\.m2\repository)
+[DEBUG] Skipped remote request for org.apache.maven.plugins:maven-deploy-plugin/maven-metadata.xml, locally cached metadata up-to-date
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-2
+org.apache.maven.plugin.PluginIncompatibleException: 
+The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-2 has unmet prerequisites: 
+	Required Maven version 4.0.0-rc-2 is not met by current version 3.9.16
+    at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:304)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+    at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:172)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+    at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+    Suppressed: java.lang.IllegalStateException: Required Maven version 4.0.0-rc-2 is not met by current version 3.9.16
+        at org.apache.maven.plugin.internal.MavenPluginMavenPrerequisiteChecker.accept (MavenPluginMavenPrerequisiteChecker.java:63)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.lambda$checkPrerequisites$0 (DefaultMavenPluginManager.java:292)
+        at java.lang.Iterable.forEach (Iterable.java:75)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:290)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+        at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:172)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+        at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+        at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+        at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+        at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+        at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+        at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] Latest version of plugin org.apache.maven.plugins:maven-deploy-plugin failed compatibility check
+[INFO] Looking for compatible RELEASE version of plugin org.apache.maven.plugins:maven-deploy-plugin
+[WARNING] Ignoring incompatible plugin version 4.0.0-beta-1
+org.apache.maven.plugin.PluginIncompatibleException: 
+The plugin org.apache.maven.plugins:maven-deploy-plugin:4.0.0-beta-1 has unmet prerequisites: 
+	Required Maven version 4.0.0-beta-3 is not met by current version 3.9.16
+    at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:304)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+    at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:207)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+    at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+    at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+    at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+    at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+    at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+    at java.lang.reflect.Method.invoke (Method.java:580)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+    Suppressed: java.lang.IllegalStateException: Required Maven version 4.0.0-beta-3 is not met by current version 3.9.16
+        at org.apache.maven.plugin.internal.MavenPluginMavenPrerequisiteChecker.accept (MavenPluginMavenPrerequisiteChecker.java:63)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.lambda$checkPrerequisites$0 (DefaultMavenPluginManager.java:292)
+        at java.lang.Iterable.forEach (Iterable.java:75)
+        at org.apache.maven.plugin.internal.DefaultMavenPluginManager.checkPrerequisites (DefaultMavenPluginManager.java:290)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at com.google.inject.internal.DelegatingInvocationHandler.invoke (DelegatingInvocationHandler.java:50)
+        at jdk.proxy2.$Proxy25.checkPrerequisites (Unknown Source)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.isCompatible (DefaultPluginVersionResolver.java:276)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.selectVersion (DefaultPluginVersionResolver.java:207)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolveFromRepository (DefaultPluginVersionResolver.java:153)
+        at org.apache.maven.plugin.version.internal.DefaultPluginVersionResolver.resolve (DefaultPluginVersionResolver.java:100)
+        at org.apache.maven.lifecycle.internal.LifecyclePluginResolver.resolveMissingPluginVersions (LifecyclePluginResolver.java:60)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:91)
+        at org.apache.maven.lifecycle.internal.DefaultLifecycleTaskSegmentCalculator.calculateTaskSegments (DefaultLifecycleTaskSegmentCalculator.java:76)
+        at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:84)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:261)
+        at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:173)
+        at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:101)
+        at org.apache.maven.cli.MavenCli.execute (MavenCli.java:919)
+        at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:285)
+        at org.apache.maven.cli.MavenCli.main (MavenCli.java:207)
+        at jdk.internal.reflect.DirectMethodHandleAccessor.invoke (DirectMethodHandleAccessor.java:103)
+        at java.lang.reflect.Method.invoke (Method.java:580)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:255)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:201)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:362)
+        at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:314)
+[INFO] Selected plugin org.apache.maven.plugins:maven-deploy-plugin:3.1.4
+[DEBUG] Resolved plugin version for org.apache.maven.plugins:maven-deploy-plugin to 3.1.4 from repository central (https://repo.maven.apache.org/maven2, default, releases)
+[DEBUG] Resolving plugin prefix nbm from [org.apache.maven.plugins, org.codehaus.mojo]
+[DEBUG] Resolved plugin prefix nbm to org.apache.netbeans.utilities:nbm-maven-plugin from repository null
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: com.prueba:HMIProject:nbm:1.0-SNAPSHOT
+[DEBUG] Tasks:   [nbm:cluster]
+[DEBUG] Style:   Aggregating
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] -----------------------< com.prueba:HMIProject >------------------------
+[INFO] Building HMIProject 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ nbm ]---------------------------------
+[DEBUG] Resolving plugin prefix nbm from [org.apache.maven.plugins, org.codehaus.mojo]
+[DEBUG] Resolved plugin prefix nbm to org.apache.netbeans.utilities:nbm-maven-plugin from repository null
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       com.prueba:HMIProject:1.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [runtime]
+[DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.netbeans.utilities:nbm-maven-plugin:14.5:cluster (default-cli)
+[DEBUG] Style:         Aggregating
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <cluster default-value="extra"/>
+  <clusterBuildDir default-value="${project.build.directory}/netbeans_clusters"/>
+  <nbmBuildDir default-value="${project.build.directory}/nbm">${maven.nbm.buildDir}</nbmBuildDir>
+  <project default-value="${project}"/>
+  <session default-value="${session}"/>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=381900, ConflictMarker.markTime=152500, ConflictMarker.nodeCount=169, ConflictIdSorter.graphTime=214000, ConflictIdSorter.topsortTime=22600, ConflictIdSorter.conflictIdCount=27, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=1504400, ConflictResolver.conflictItemCount=168, DfDependencyCollector.collectTime=60169800, DfDependencyCollector.transformTime=2340700}
+[DEBUG] com.prueba:HMIProject:nbm:1.0-SNAPSHOT
+[DEBUG]    org.netbeans.api:org-netbeans-api-annotations-common:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-modules-projectapi:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-modules-queries:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-filesystems:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-modules:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-util:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-util-lookup:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-util-ui:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-modules-projectuiapi:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-api-progress:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-api-progress-nb:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-api-scripting:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-api-templates:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-modules-editor-mimelookup:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-modules-projectuiapi-base:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-swing-outline:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-netbeans-swing-tabcontrol:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-actions:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-awt:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-dialogs:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-explorer:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-filesystems-nb:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-loaders:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-nodes:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-text:jar:RELEASE300:compile
+[DEBUG]    org.netbeans.api:org-openide-windows:jar:RELEASE300:compile
+[DEBUG]    com.prueba:HMIPanelSubproject:jar:1.0-SNAPSHOT:compile
+[INFO] 
+[INFO] --- nbm:14.5:cluster (default-cli) @ HMIProject ---
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=134900, ConflictMarker.markTime=60000, ConflictMarker.nodeCount=54, ConflictIdSorter.graphTime=81200, ConflictIdSorter.topsortTime=18300, ConflictIdSorter.conflictIdCount=33, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=423700, ConflictResolver.conflictItemCount=54, DfDependencyCollector.collectTime=5923200, DfDependencyCollector.transformTime=1376100}
+[DEBUG] org.apache.netbeans.utilities:nbm-maven-plugin:jar:14.5
+[DEBUG]    org.slf4j:slf4j-api:jar:1.7.36:compile
+[DEBUG]    org.apache.maven:maven-archiver:jar:3.6.6:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.29:compile
+[DEBUG]       org.codehaus.plexus:plexus-xml:jar:3.0.2:compile
+[DEBUG]    org.apache.ant:ant:jar:1.10.17:compile
+[DEBUG]       org.apache.ant:ant-launcher:jar:1.10.17:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.6.1:compile
+[DEBUG]    org.codehaus.plexus:plexus-archiver:jar:4.11.0:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile (version managed from default)
+[DEBUG]       org.apache.commons:commons-compress:jar:1.28.0:compile (version managed from default)
+[DEBUG]          commons-codec:commons-codec:jar:1.19.0:compile
+[DEBUG]          org.apache.commons:commons-lang3:jar:3.18.0:compile
+[DEBUG]       commons-io:commons-io:jar:2.21.0:compile (version managed from default)
+[DEBUG]       org.tukaani:xz:jar:1.11:runtime
+[DEBUG]       com.github.luben:zstd-jni:jar:1.5.7-6:runtime
+[DEBUG]    org.codehaus.plexus:plexus-io:jar:3.6.0:compile
+[DEBUG]    org.apache.netbeans.utilities:nbm-maven-harness:jar:14.5:compile
+[DEBUG]    org.apache.netbeans.utilities:nb-shared:jar:14.5:compile
+[DEBUG]       org.apache.maven:maven-plugin-api:jar:3.9.15:compile (version managed from default)
+[DEBUG]          org.apache.maven:maven-model:jar:3.9.15:compile (version managed from default)
+[DEBUG]          org.apache.maven:maven-artifact:jar:3.9.15:compile (version managed from default)
+[DEBUG]          org.eclipse.sisu:org.eclipse.sisu.plexus:jar:1.0.0:compile
+[DEBUG]             org.codehaus.plexus:plexus-component-annotations:jar:2.2.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.9.0:compile
+[DEBUG]    org.netbeans.external:updater:jar:RELEASE280:compile
+[DEBUG]    org.apache.maven.resolver:maven-resolver-util:jar:1.9.27:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.9.27:compile (version managed from default)
+[DEBUG]    org.apache.maven.shared:maven-dependency-analyzer:jar:1.17.0:compile
+[DEBUG]       org.ow2.asm:asm:jar:9.9.1:compile (version managed from default)
+[DEBUG]    org.apache.maven.shared:maven-filtering:jar:3.5.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-build-api:jar:1.2.0:compile
+[DEBUG]          org.sonatype.plexus:plexus-build-api:jar:0.0.7:compile
+[DEBUG] Created new class realm plugin>org.apache.netbeans.utilities:nbm-maven-plugin:14.5
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.netbeans.utilities:nbm-maven-plugin:14.5
+[DEBUG]   Imported:  < project>com.prueba:HMIProject:1.0-SNAPSHOT
+[DEBUG] Populating class realm plugin>org.apache.netbeans.utilities:nbm-maven-plugin:14.5
+[DEBUG]   Included: org.apache.netbeans.utilities:nbm-maven-plugin:jar:14.5
+[DEBUG]   Included: org.apache.maven:maven-archiver:jar:3.6.6
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.29
+[DEBUG]   Included: org.codehaus.plexus:plexus-xml:jar:3.0.2
+[DEBUG]   Included: org.apache.ant:ant:jar:1.10.17
+[DEBUG]   Included: org.apache.ant:ant-launcher:jar:1.10.17
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.6.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:4.11.0
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.28.0
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.19.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.18.0
+[DEBUG]   Included: commons-io:commons-io:jar:2.21.0
+[DEBUG]   Included: org.tukaani:xz:jar:1.11
+[DEBUG]   Included: com.github.luben:zstd-jni:jar:1.5.7-6
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:3.6.0
+[DEBUG]   Included: org.apache.netbeans.utilities:nbm-maven-harness:jar:14.5
+[DEBUG]   Included: org.apache.netbeans.utilities:nb-shared:jar:14.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:2.2.0
+[DEBUG]   Included: org.netbeans.external:updater:jar:RELEASE280
+[DEBUG]   Included: org.apache.maven.shared:maven-dependency-analyzer:jar:1.17.0
+[DEBUG]   Included: org.ow2.asm:asm:jar:9.9.1
+[DEBUG]   Included: org.apache.maven.shared:maven-filtering:jar:3.5.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-build-api:jar:1.2.0
+[DEBUG]   Included: org.sonatype.plexus:plexus-build-api:jar:0.0.7
+[DEBUG] Loading mojo org.apache.netbeans.utilities:nbm-maven-plugin:14.5:cluster from plugin realm ClassRealm[plugin>org.apache.netbeans.utilities:nbm-maven-plugin:14.5, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@70dea4e]
+[DEBUG] Configuring mojo execution 'org.apache.netbeans.utilities:nbm-maven-plugin:14.5:cluster:default-cli' with basic configurator -->
+[DEBUG]   (f) cluster = extra
+[DEBUG]   (f) clusterBuildDir = c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\netbeans_clusters
+[DEBUG]   (f) nbmBuildDir = c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\nbm
+[DEBUG]   (f) project = MavenProject: com.prueba:HMIProject:1.0-SNAPSHOT @ c:\Users\luis\Documents\NetBeansProjects\HMIProject\pom.xml
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@4017fe2c
+[DEBUG] -- end configuration --
+[DEBUG] parsing buildfile jar:file:/C:/Users/luis/.m2/repository/org/apache/ant/ant/1.10.17/ant-1.10.17.jar!/org/apache/tools/ant/antlib.xml with URI = jar:file:/C:/Users/luis/.m2/repository/org/apache/ant/ant/1.10.17/ant-1.10.17.jar!/org/apache/tools/ant/antlib.xml from a zip file
+[DEBUG]    +Task: taskdef
+[DEBUG] Class org.netbeans.nbbuild.MakeListOfNBM loaded from parent loader (parentFirst)
+[DEBUG]  +Datatype genlist org.netbeans.nbbuild.MakeListOfNBM
+[DEBUG]    +Task: taskdef
+[DEBUG] Class org.netbeans.nbbuild.MakeNBM loaded from parent loader (parentFirst)
+[DEBUG]  +Datatype makenbm org.netbeans.nbbuild.MakeNBM
+[DEBUG]    +Task: taskdef
+[DEBUG] Class org.netbeans.nbbuild.MakeUpdateDesc loaded from parent loader (parentFirst)
+[DEBUG]  +Datatype updatedist org.netbeans.nbbuild.MakeUpdateDesc
+[DEBUG]    +Task: taskdef
+[DEBUG] Class org.netbeans.nbbuild.CreateModuleXML loaded from parent loader (parentFirst)
+[DEBUG]  +Datatype createmodulexml org.netbeans.nbbuild.CreateModuleXML
+[DEBUG]    +Task: taskdef
+[DEBUG] Class org.netbeans.nbbuild.JHIndexer loaded from parent loader (parentFirst)
+[DEBUG]  +Datatype jhindexer org.netbeans.nbbuild.JHIndexer
+[DEBUG]    +Task: copy
+[DEBUG] FileSet: Setup scanner in dir c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\nbm\clusters with patternSet{ includes: [**] excludes: [] }
+[INFO] Copying 3 files to c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\netbeans_clusters
+[DEBUG] Copying c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\nbm\clusters\extra\config\Modules\com-prueba-HMIProject.xml to c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\netbeans_clusters\extra\config\Modules\com-prueba-HMIProject.xml
+[DEBUG] Copying c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\nbm\clusters\extra\modules\com-prueba-HMIProject.jar to c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\netbeans_clusters\extra\modules\com-prueba-HMIProject.jar
+[DEBUG] Copying c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\nbm\clusters\extra\update_tracking\com-prueba-HMIProject.xml to c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\netbeans_clusters\extra\update_tracking\com-prueba-HMIProject.xml
+[INFO] Created NetBeans module cluster(s) at c:\Users\luis\Documents\NetBeansProjects\HMIProject\target\netbeans_clusters
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.157 s
+[INFO] Finished at: 2026-09-02T23:34:18-04:00
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Shutting down adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gaecv, file-gav, file-hgaecv, file-hgav, file-static, gaecv, gav, static]
+[DEBUG] Shutting down 'file-lock' factory
+[DEBUG] Shutting down 'rwlock-local' factory
+[DEBUG] Shutting down 'semaphore-local' factory
+[DEBUG] Shutting down 'noop' factory
