@@ -4,7 +4,7 @@
  */
 package com.prueba.hmipanelsubprojectcategory.nodes;
 
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryBOBAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryOPCAction;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Action;
@@ -26,37 +26,37 @@ import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
+
 @NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 100)
-public class HMICategoryDisplayNodeFactory implements NodeFactory {
+public class HMICategoryOperatorPanelConfigNodeFactory implements NodeFactory {
 
     @Override
     public NodeList<?> createNodes(Project project) {
         FileObject projectDir = project.getProjectDirectory();
 
-        // Solo mostrar si la carpeta se llama "Image"
-        if (!"Image".equalsIgnoreCase(projectDir.getName())) {
+        // Solo mostrar si la carpeta se llama "Configuracion de panel de operador"
+        if (!"Configuracion de panel de operador".equalsIgnoreCase(projectDir.getName())) {
             return NodeFactorySupport.fixedNodeList();
         }
 
-        return new HMICategoryDisplayNodeList(projectDir);
+        return new HMICategoryOperatorPanelConfigNodeList(projectDir);
     }
 
-    private static class HMICategoryDisplayNodeList implements NodeList<FileObject>, FileChangeListener {
+    private static class HMICategoryOperatorPanelConfigNodeList implements NodeList<FileObject>, FileChangeListener {
 
         private final FileObject folder;
         private final List<ChangeListener> listeners = new ArrayList<>();
         private final List<FileObject> keys = new ArrayList<>();
-        private final static String HIDE_FILE_BOB = "template.bob";
+        private final static String HIDE_FILE_OPPC = "base.oppc";
 
-        public HMICategoryDisplayNodeList(FileObject folder) {
+        public HMICategoryOperatorPanelConfigNodeList(FileObject folder) {
             this.folder = folder;
             refreshKeys();
         }
+        // 1. Devuelve la lista de llaves (archivos .oppc) actual
 
-        // 1. Devuelve la lista de llaves (archivos .bob) actual
         @Override
         public List<FileObject> keys() {
-
             return keys;
         }
 
@@ -64,18 +64,15 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
         @Override
         public Node node(FileObject key) {
             try {
-
                 DataObject dataObj = DataObject.find(key);
-                return new HMIBobNode(dataObj, key);
+                return new HMIOPCNode(dataObj, key);
 
             } catch (DataObjectNotFoundException ex) {
                 Exceptions.printStackTrace(ex);
                 return null;
             }
-
         }
 
-        // 3. Registro de Listeners requerido por la interfaz NodeList
         @Override
         public void addChangeListener(ChangeListener cl) {
             listeners.add(cl);
@@ -108,9 +105,9 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
         private void refreshKeys() {
             keys.clear();
             for (FileObject child : folder.getChildren()) {
-                if (!child.isFolder() && "bob".equalsIgnoreCase(child.getExt())) {
+                if (!child.isFolder() && "oppc".equalsIgnoreCase(child.getExt())) {
 
-                    if (!HIDE_FILE_BOB.equalsIgnoreCase(child.getNameExt())) {
+                    if (!HIDE_FILE_OPPC.equalsIgnoreCase(child.getNameExt())) {
                         keys.add(child);
                     }
 
@@ -122,14 +119,14 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
 
         @Override
         public void fileDataCreated(FileEvent fe) {
-            if ("bob".equalsIgnoreCase(fe.getFile().getExt())) {
+            if ("oppc".equalsIgnoreCase(fe.getFile().getExt())) {
                 refreshKeys();
             }
         }
 
         @Override
         public void fileDeleted(FileEvent fe) {
-            if ("bob".equalsIgnoreCase(fe.getFile().getExt())) {
+            if ("oppc".equalsIgnoreCase(fe.getFile().getExt())) {
                 refreshKeys();
             }
         }
@@ -153,14 +150,13 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
         public void fileAttributeChanged(FileAttributeEvent fae) {
             //TODO
         }
-
     }
-
-    private static class HMIBobNode extends DataNode {
+    //COP = Config Operator Panel
+    private static class HMIOPCNode extends DataNode {
 
         private final FileObject fileObject;
 
-        public HMIBobNode(DataObject dataObject, FileObject fileObject) {
+        public HMIOPCNode(DataObject dataObject, FileObject fileObject) {
             super(dataObject, Children.LEAF);
             this.fileObject = fileObject;
 
@@ -175,7 +171,7 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
             Action[] defaultActions = super.getActions(context);
 
             List<Action> allActions = new ArrayList<>();
-            allActions.add(new HMICategoryBOBAction(fileObject));
+            allActions.add(new HMICategoryOPCAction(fileObject));
             allActions.add(null);
             for (Action action : defaultActions) {
                 allActions.add(action);
@@ -183,4 +179,5 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
             return allActions.toArray(new Action[0]);
         }
     }
+
 }

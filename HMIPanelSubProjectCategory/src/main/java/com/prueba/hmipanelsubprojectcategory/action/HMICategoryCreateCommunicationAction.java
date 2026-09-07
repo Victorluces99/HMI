@@ -11,7 +11,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.JOptionPane;
 import org.netbeans.api.project.Project;
 import org.openide.DialogDescriptor;
 import org.openide.DialogDisplayer;
@@ -20,19 +19,14 @@ import org.openide.util.ContextAwareAction;
 import org.openide.util.Exceptions;
 import org.openide.util.Lookup;
 
-/**
- *
- * @author Victor
- */
-public class HMICategoryCreateDisplayAction extends AbstractAction implements ContextAwareAction {
+public class HMICategoryCreateCommunicationAction extends AbstractAction implements ContextAwareAction {
 
-    private final static String FILE_NAME_DISPLAY_EXT = "bob";
-    private final static String DISPLAY_TEMPLATE_PATH = 
-            "com/prueba/hmipanelsubprojectcategory/ftype/DisplayTemplate.bob";
+    private final static String FILE_NAME_DISPLAY_EXT = "merlot";
+//    private final static String DISPLAY_TEMPLATE_PATH = 
     private Project project;
 
-    public HMICategoryCreateDisplayAction(Project project) {
-        super("Crear pantalla");
+    public HMICategoryCreateCommunicationAction(Project project) {
+        super("Crear Comunicación");
         this.project = project;
     }
 
@@ -44,7 +38,7 @@ public class HMICategoryCreateDisplayAction extends AbstractAction implements Co
 
         DialogDescriptor descriptor = new DialogDescriptor(
                 cd,
-                "Crear Display",
+                "Crear Comunicación",
                 true,
                 new Object[0],
                 null,
@@ -60,12 +54,12 @@ public class HMICategoryCreateDisplayAction extends AbstractAction implements Co
             try {
                 FileObject newFile = targetFolder.createData(fileName, FILE_NAME_DISPLAY_EXT);
 
-                try (InputStream in = getClass().getClassLoader()
-                        .getResourceAsStream(DISPLAY_TEMPLATE_PATH); OutputStream out = newFile.getOutputStream()) {
-                    if (in != null) {
-                        in.transferTo(out);
-                    }
-                }
+//                try (InputStream in = getClass().getClassLoader()
+//                        .getResourceAsStream(DISPLAY_TEMPLATE_PATH); OutputStream out = newFile.getOutputStream()) {
+//                    if (in != null) {
+//                        in.transferTo(out);
+//                    }
+//                }
 
 //                JOptionPane.showMessageDialog(null, "Pantalla creada");
             } catch (IOException ex) {
@@ -78,6 +72,4 @@ public class HMICategoryCreateDisplayAction extends AbstractAction implements Co
     public Action createContextAwareInstance(Lookup lkp) {
         return null;
     }
-    
-
 }

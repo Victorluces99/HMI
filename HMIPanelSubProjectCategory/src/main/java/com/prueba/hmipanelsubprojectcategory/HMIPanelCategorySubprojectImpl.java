@@ -4,7 +4,15 @@
  */
 package com.prueba.hmipanelsubprojectcategory;
 
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateCommunicationAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateOperatorPanelConfigAction;
 import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateDisplayAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateRecipeAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateRecordAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateReportAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateScriptsAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateWarningManagementAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryWarningManagementAction;
 import java.awt.Image;
 import java.beans.PropertyChangeListener;
 import javax.swing.Action;
@@ -156,28 +164,85 @@ public class HMIPanelCategorySubprojectImpl implements Project {
                 1. Identificar el tipo de carpeta.
                 Image: .bob
                 Comunicaciones: .merlot
+                Configurar panel de operador: .cop
+                Historial: .record
                 
                 2. Con el tipo de carpeta, generar las acciones correspondientes
                 3. Retornar las acciones
                  */
 
                 FileObject projectDir = this.project.getProjectDirectory();
-
+                //Acciones para image
                 if (hasChildFile(projectDir, "template.bob")) {
                     return new Action[]{
                         CommonProjectActions.closeProjectAction(),
                         CommonProjectActions.deleteProjectAction(),
                         new HMICategoryCreateDisplayAction(this.project)
                     };
-                } else if (hasChildFile(projectDir, "comunicaciones.merlot")) {
+                } else if (hasChildFile(projectDir, "comm.merlot")) {
                     // Acciones para el tipo Comunicaciones
                     return new Action[]{
                         CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateCommunicationAction(this.project)
                         
                     };
+                    //Para Configurar panel de operador
+                } else if(hasChildFile(projectDir, "base.oppc")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateOperatorPanelConfigAction(this.project)
+                    };
+                    //Para Historial
+                } else if(hasChildFile(projectDir, "record.record")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateRecordAction(this.project)
+                    };
+                    //Para Receta
+                }else if (hasChildFile(projectDir, "base.rcp")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateRecipeAction(this.project)
+                    };
+                    //Para Informe
+                }else if(hasChildFile(projectDir, "base.rpt")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateReportAction(this.project)
+                    };
+                    //Para Scrips
+                }else if(hasChildFile(projectDir, "base.scp")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateScriptsAction(this.project)
+                    };
+                    //Para Gestion de Avisos
+                }else if(hasChildFile(projectDir, "base.wmg")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                        new HMICategoryCreateWarningManagementAction(this.project)
+                    };
+                    //Para Texto y Lista de graficos
+                }else if(hasChildFile(projectDir, "base.tlc")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                    };
+                    //Para Administracion de usuarios runtime
+                }else if(hasChildFile(projectDir, "base.rtum")){
+                    return new Action[]{
+                        CommonProjectActions.closeProjectAction(),
+                        CommonProjectActions.deleteProjectAction(),
+                    };
                 }
-
-                // NUNCA retornes null; usa un arreglo vacío o super.getActions(context)
+                
                 return new Action[0];
 
             }
