@@ -4,8 +4,11 @@
  */
 package com.prueba.hmipanelsubproject;
 
+import com.prueba.hmipanelsubproject.action.HMIPanelCompileAction;
 import java.awt.Image;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -28,7 +31,6 @@ import org.openide.util.ImageUtilities;
 import org.openide.util.Lookup;
 import org.openide.util.lookup.Lookups;
 import org.openide.util.lookup.ProxyLookup;
-
 
 public class HMIPanelSubprojectImpl implements Project {
 
@@ -54,8 +56,8 @@ public class HMIPanelSubprojectImpl implements Project {
                 this,
                 new HMIPanelSubprojectInfoImpl(),
                 new HMIPanelSubprojectLogicalViewImpl(this),
-                new HMIPanelCategorySubprojectProviderImpl(this), 
-//                new HMIPanelCommunicationSubprojectProviderImpl(this), 
+                new HMIPanelCategorySubprojectProviderImpl(this),
+            //                new HMIPanelCommunicationSubprojectProviderImpl(this), 
             //                new HMIPanelNotificationManagerSubprojectProviderImpl(this), 
             //                new HMIPanelRecipeSubprojectProviderImpl(this),                  
             //                new HMIPanelHistorialSubprojectProviderImpl(this),                  
@@ -160,8 +162,13 @@ public class HMIPanelSubprojectImpl implements Project {
 
             @Override
             public Action[] getActions(boolean context) {
-               //TODO: Agregar acciones para los proyectos
-               return null;
+                FileObject projectDir = this.project.getProjectDirectory();
+                //TODO: Agregar acciones para los proyectos
+//                Action[] defaultActions = super.getActions(context);
+                
+                List<Action> allActions = new ArrayList<>();
+                allActions.add(new HMIPanelCompileAction(projectDir));
+                return allActions.toArray(new Action[0]);
             }
 
             @Override

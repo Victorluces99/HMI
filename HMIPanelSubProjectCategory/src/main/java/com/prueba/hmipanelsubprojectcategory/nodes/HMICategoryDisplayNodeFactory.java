@@ -4,7 +4,8 @@
  */
 package com.prueba.hmipanelsubprojectcategory.nodes;
 
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryBOBAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryOpenPhoebusAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryDuplicateDisplayAction;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Action;
@@ -174,8 +175,10 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
         public Action[] getActions(boolean context) {
             Action[] defaultActions = super.getActions(context);
 
-            List<Action> allActions = new ArrayList<>();
-            allActions.add(new HMICategoryBOBAction(fileObject));
+            List<Action> allActions = new ArrayList<>();    
+            allActions.add(new HMICategoryOpenPhoebusAction(fileObject));
+            allActions.add(null);
+            allActions.add(new HMICategoryDuplicateDisplayAction(fileObject));
             allActions.add(null);
             for (Action action : defaultActions) {
                 allActions.add(action);

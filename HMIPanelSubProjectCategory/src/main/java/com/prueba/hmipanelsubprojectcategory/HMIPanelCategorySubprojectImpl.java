@@ -4,17 +4,13 @@
  */
 package com.prueba.hmipanelsubprojectcategory;
 
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateCommunicationAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateOperatorPanelConfigAction;
+import com.prueba.hmipanelsubprojectcategory.action.HMICategoryOpenPhoebusAction;
 import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateDisplayAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateRecipeAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateRecordAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateReportAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateScriptsAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryCreateWarningManagementAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryWarningManagementAction;
 import java.awt.Image;
 import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -158,93 +154,70 @@ public class HMIPanelCategorySubprojectImpl implements Project {
                 this.project = project;
             }
 
-            @Override
             public Action[] getActions(boolean context) {
-                /*
-                1. Identificar el tipo de carpeta.
-                Image: .bob
-                Comunicaciones: .merlot
-                Configurar panel de operador: .cop
-                Historial: .record
-                
-                2. Con el tipo de carpeta, generar las acciones correspondientes
-                3. Retornar las acciones
-                 */
-
                 FileObject projectDir = this.project.getProjectDirectory();
-                //Acciones para image
-                if (hasChildFile(projectDir, "template.bob")) {
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateDisplayAction(this.project)
-                    };
-                } else if (hasChildFile(projectDir, "comm.merlot")) {
-                    // Acciones para el tipo Comunicaciones
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateCommunicationAction(this.project)
-                        
-                    };
-                    //Para Configurar panel de operador
-                } else if(hasChildFile(projectDir, "base.oppc")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateOperatorPanelConfigAction(this.project)
-                    };
-                    //Para Historial
-                } else if(hasChildFile(projectDir, "record.record")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateRecordAction(this.project)
-                    };
-                    //Para Receta
-                }else if (hasChildFile(projectDir, "base.rcp")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateRecipeAction(this.project)
-                    };
-                    //Para Informe
-                }else if(hasChildFile(projectDir, "base.rpt")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateReportAction(this.project)
-                    };
-                    //Para Scrips
-                }else if(hasChildFile(projectDir, "base.scp")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateScriptsAction(this.project)
-                    };
-                    //Para Gestion de Avisos
-                }else if(hasChildFile(projectDir, "base.wmg")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                        new HMICategoryCreateWarningManagementAction(this.project)
-                    };
-                    //Para Texto y Lista de graficos
-                }else if(hasChildFile(projectDir, "base.tlc")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                    };
-                    //Para Administracion de usuarios runtime
-                }else if(hasChildFile(projectDir, "base.rtum")){
-                    return new Action[]{
-                        CommonProjectActions.closeProjectAction(),
-                        CommonProjectActions.deleteProjectAction(),
-                    };
-                }
-                
-                return new Action[0];
+                String detectedFile = findExistingCategoryFile(projectDir);
 
+                // Si no se encuentra ningún archivo compatible, retorna un arreglo vacío
+                if (detectedFile == null) {
+                    return new Action[0];
+                }
+
+                // Identificar la acción específica asociada al archivo
+                Action[] customAction = switch (detectedFile) {
+                    case "template.bob" ->
+                        new Action[]{
+                            new HMICategoryCreateDisplayAction(this.project),
+                            new HMICategoryOpenPhoebusAction(this.project.getProjectDirectory())
+                        };
+//                    case "comm.merlot" ->
+//                        new HMICategoryCreateCommunicationAction(this.project);
+//                    case "base.oppc" ->
+//                        new HMICategoryCreateOperatorPanelConfigAction(this.project);
+//                    case "record.record" ->
+//                        new HMICategoryCreateRecordAction(this.project);
+//                    case "base.rcp" ->
+//                        new HMICategoryCreateRecipeAction(this.project);
+//                    case "base.rpt" ->
+//                        new HMICategoryCreateReportAction(this.project);
+//                    case "base.scp" ->
+//                        new HMICategoryCreateScriptsAction(this.project);
+//                    case "base.wmg" ->
+//                        new HMICategoryCreateWarningManagementAction(this.project);
+                    default ->
+                        new Action[0];
+                };
+                return getActionForName(customAction);
+            }
+
+            public Action[] getActionForName(Action[] customAction) {
+                List<Action> actionList = new ArrayList<>();
+
+                // 1. Acciones estándar
+                actionList.add(CommonProjectActions.closeProjectAction());
+                actionList.add(CommonProjectActions.deleteProjectAction());
+
+                // 2. Si existen acciones personalizadas, agregamos separador y el listado
+                if (customAction.length > 0) {
+                    actionList.add(null); // Separador en el menú de NetBeans
+                    actionList.addAll(Arrays.asList(customAction));
+                }
+
+                return actionList.toArray(Action[]::new);
+            }
+
+            private String findExistingCategoryFile(FileObject projectDir) {
+                String[] categoryFiles = {
+                    "template.bob", "comm.merlot", "base.oppc", "record.record",
+                    "base.rcp", "base.rpt", "base.scp", "base.wmg", "base.tlc", "base.rtum"
+                };
+
+                for (String fileName : categoryFiles) {
+                    if (hasChildFile(projectDir, fileName)) {
+                        return fileName;
+                    }
+                }
+                return null;
             }
 
             private boolean hasChildFile(FileObject folder, String fileName) {

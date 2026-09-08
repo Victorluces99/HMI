@@ -54,7 +54,6 @@ public class HMIProjectImpl implements Project {
                 new HMIProjectInfoImpl(),
                 new HMIProjectLogicalViewImpl(this),
                 new HMISubProjectProviderImpl(this),
-                //TODO: Crear estos modulos dentro del parent
                 new HMISubProjectLanguageProviderImpl(this),
                 new HMISubprojectEstructurasProviderImpl(this),
                 new HMISubprojectVersionsManageProviderImpl(this)
