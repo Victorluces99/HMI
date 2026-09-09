@@ -34,10 +34,6 @@ import org.openide.util.Lookup;
 import org.openide.util.lookup.Lookups;
 import org.openide.util.lookup.ProxyLookup;
 
-/**
- *
- * @author luis
- */
 public class HMIPanelCategorySubprojectImpl implements Project {
 
     private final FileObject fo;

@@ -4,8 +4,6 @@
  */
 package com.prueba.hmipanelsubprojectcategory.nodes;
 
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryRecipeAction;
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryRecordAction;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Action;
@@ -174,7 +172,6 @@ public class HMICategoryRecipeNodeFactory implements NodeFactory{
             Action[] defaultActions = super.getActions(context);
 
             List<Action> allActions = new ArrayList<>();
-            allActions.add(new HMICategoryRecipeAction(fileObject));
             allActions.add(null);
             for (Action action : defaultActions) {
                 allActions.add(action);

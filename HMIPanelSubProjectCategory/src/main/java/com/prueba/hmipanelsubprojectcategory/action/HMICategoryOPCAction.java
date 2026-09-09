@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import org.openide.filesystems.FileObject;
 
-//COP = Config operator panel.
+//OPC = Operator Panel Configuration.
 public class HMICategoryOPCAction extends AbstractAction{
     private final FileObject fileObject;
 

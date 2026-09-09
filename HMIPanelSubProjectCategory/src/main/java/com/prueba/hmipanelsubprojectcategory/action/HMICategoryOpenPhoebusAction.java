@@ -92,8 +92,18 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
         System.out.println("[abrirBobNativo] Contenido ANTES: " + contenido);
         System.out.println("[abrirBobNativo] Nueva URI: " + nuevaUri);
 
-        //Reemplazar el input_uri anterior por el nuevo (reemplazo literal, sin regex)
-        contenido = contenido.replaceFirst("input_uri=\"[^\"]*\"", "input_uri=\"" + nuevaUri + "\"");
+        //Reemplazar el input_uri anterior por el nuevo y en caso de que no exita lo agrega.
+        if (contenido.contains("input_uri=")) {
+            contenido = contenido.replaceFirst("input_uri=\"[^\"]*\"", "input_uri=\"" + nuevaUri + "\"");
+        } else {
+            // Recrear memento desde plantilla
+            String user = System.getProperty("user.name", "user");
+            String uid = "DockItem_" + UUID.randomUUID().toString().replace("-", "_");
+            contenido = MEMENTO_TEMPLATE
+                    .replace("%ID%", uid)
+                    .replace("%USER%", XmlEscaping(user))
+                    .replace("%URI%", nuevaUri);
+        }
         System.out.println("[abrirBobNativo] Contenido DESPUÉS: " + contenido);
 
         //Sobrescribe el archivo memento con la nueva info

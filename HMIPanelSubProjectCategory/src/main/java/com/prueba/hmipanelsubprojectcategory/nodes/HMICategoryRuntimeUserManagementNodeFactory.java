@@ -4,7 +4,6 @@
  */
 package com.prueba.hmipanelsubprojectcategory.nodes;
 
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryReportAction;
 import com.prueba.hmipanelsubprojectcategory.action.HMICategoryRuntimeUserManagementAction;
 import java.util.ArrayList;
 import java.util.List;

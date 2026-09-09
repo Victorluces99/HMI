@@ -151,7 +151,7 @@ public class HMICategoryOperatorPanelConfigNodeFactory implements NodeFactory {
             //TODO
         }
     }
-    //COP = Config Operator Panel
+    //OPC = Operator Panel Configuration.
     private static class HMIOPCNode extends DataNode {
 
         private final FileObject fileObject;

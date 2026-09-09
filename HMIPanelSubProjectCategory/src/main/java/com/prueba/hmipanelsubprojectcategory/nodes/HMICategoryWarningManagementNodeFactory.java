@@ -4,7 +4,6 @@
  */
 package com.prueba.hmipanelsubprojectcategory.nodes;
 
-import com.prueba.hmipanelsubprojectcategory.action.HMICategoryScriptsAction;
 import com.prueba.hmipanelsubprojectcategory.action.HMICategoryWarningManagementAction;
 import java.util.ArrayList;
 import java.util.List;
