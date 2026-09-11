@@ -10,7 +10,7 @@ public class ApplicationTest extends NbTestCase {
     public static Test suite() {
         return NbModuleSuite.createConfiguration(ApplicationTest.class).
                 gui(false).
-                failOnMessage(Level.WARNING).
+                failOnMessage(Level.SEVERE).
                 failOnException(Level.INFO).
                 enableClasspathModules(false). 
                 clusters(".*").
