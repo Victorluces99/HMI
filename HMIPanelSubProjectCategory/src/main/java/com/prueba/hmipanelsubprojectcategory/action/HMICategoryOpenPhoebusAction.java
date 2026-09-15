@@ -59,7 +59,6 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
             return;
         }
 
-       
         boolean esWindows = System.getProperty("os.name").toLowerCase().contains("win");
         File ejecutablePhoebus = new File(rutaPhoebus);
 
@@ -119,9 +118,8 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
         File mementoFile = rutaMemento.toFile();
 
         //Construir la URI del archivo (siempre con / y escapada para XML)
-        String nuevaUri = "file:/" + file.getAbsolutePath().replace("\\", "/");
+        String nuevaUri = file.toURI().toString();
         nuevaUri = XmlEscaping(nuevaUri);
-
         //Si el memento no existe, crearlo con su estructura base y el usuario
         if (!mementoFile.exists()) {
             String user = System.getProperty("user.name", "user");
