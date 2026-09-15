@@ -19,7 +19,6 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.UUID;
 
-
 public class HMICategoryOpenPhoebusAction extends AbstractAction {
 
     private final FileObject bobFile;
@@ -39,7 +38,6 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
     }
 
     public void actionPerformed(ActionEvent e) {
-        //TODO: Agregar la escritura del archivo memento.xml en .phoebus/memento.xml
         RequestProcessor.getDefault().post(() -> OpenNativeBob(this.bobFile));
         System.out.println("Acción abrir ejecutada sobre: " + bobFile.getNameExt());
     }
@@ -49,30 +47,66 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
         if (file == null) {
             return;
         }
+
         java.util.prefs.Preferences prefs = org.openide.util.NbPreferences.forModule(PhoebusOptionsPanelController.class);
-        String rutaPhoebus = prefs.get("phoebus.path", "");
+        String rutaPhoebus = prefs.get("phoebus.path", "").trim();
 
         if (rutaPhoebus.isEmpty()) {
             org.openide.DialogDisplayer.getDefault().notify(
-                    new org.openide.NotifyDescriptor.Message("Por favor, configure la ruta de Phoebus en Tools -> Options.")
+                    new org.openide.NotifyDescriptor.Message("Por favor, configure la ruta de Phoebus en Tools -> Options.",
+                            org.openide.NotifyDescriptor.INFORMATION_MESSAGE)
             );
-            return; // Detiene el flujo si el usuario no ha configurado la herramienta
+            return;
+        }
+
+       
+        boolean esWindows = System.getProperty("os.name").toLowerCase().contains("win");
+        File ejecutablePhoebus = new File(rutaPhoebus);
+
+        if (esWindows) {
+            if (!rutaPhoebus.toLowerCase().endsWith(".bat")) {
+                org.openide.DialogDisplayer.getDefault().notify(
+                        new org.openide.NotifyDescriptor.Message(
+                                "Error de configuración: En Windows, la herramienta externa de Phoebus debe apuntar a un archivo ejecutable '.bat'.\nPor favor, corríjalo en Tools -> Options.",
+                                org.openide.NotifyDescriptor.ERROR_MESSAGE)
+                );
+                return;
+            }
+        } else {
+            if (!rutaPhoebus.toLowerCase().endsWith(".sh")) {
+                org.openide.DialogDisplayer.getDefault().notify(
+                        new org.openide.NotifyDescriptor.Message(
+                                "Error de configuración: En sistemas Unix/Linux, la herramienta externa de Phoebus debe apuntar a un script '.sh'.\nPor favor, corríjalo en Tools -> Options.",
+                                org.openide.NotifyDescriptor.ERROR_MESSAGE)
+                );
+                return;
+            }
+        }
+
+        if (!ejecutablePhoebus.exists()) {
+            org.openide.DialogDisplayer.getDefault().notify(
+                    new org.openide.NotifyDescriptor.Message(
+                            "El archivo configurado para Phoebus no existe en la ruta especificada:\n" + rutaPhoebus,
+                            org.openide.NotifyDescriptor.ERROR_MESSAGE)
+            );
+            return;
         }
 
         try {
             OverwriteMemento(file);
             ProcessBuilder pb = new ProcessBuilder(
                     rutaPhoebus,
-                    "-nosplash" // Evita el splash screen inicial
+                    "-nosplash"
             );
 
             pb.redirectErrorStream(true);
             pb.start();
-            System.out.println("Phoebus lanzado con éxito utilizando memento para: " + file.getName());
+            System.out.println("Phoebus lanzado de forma segura para: " + file.getName());
 
         } catch (Exception ex) {
             org.openide.DialogDisplayer.getDefault().notify(
-                    new org.openide.NotifyDescriptor.Message("Error al intentar procesar o ejecutar Phoebus: " + ex.getMessage())
+                    new org.openide.NotifyDescriptor.Message("Error al intentar ejecutar Phoebus: " + ex.getMessage(),
+                            org.openide.NotifyDescriptor.ERROR_MESSAGE)
             );
             Exceptions.printStackTrace(ex);
         }

@@ -14,11 +14,22 @@ final class PhoebusPanel extends javax.swing.JPanel {
         this.controller = controller;
         initComponents();
         // TODO listen to changes in form fields and call controller.changed()
-         txtRutaPhoebus.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
-        @Override public void insertUpdate(javax.swing.event.DocumentEvent e) { controller.changed(); }
-        @Override public void removeUpdate(javax.swing.event.DocumentEvent e) { controller.changed(); }
-        @Override public void changedUpdate(javax.swing.event.DocumentEvent e) { controller.changed(); }
-    });
+        txtRutaPhoebus.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            @Override
+            public void insertUpdate(javax.swing.event.DocumentEvent e) {
+                controller.changed();
+            }
+
+            @Override
+            public void removeUpdate(javax.swing.event.DocumentEvent e) {
+                controller.changed();
+            }
+
+            @Override
+            public void changedUpdate(javax.swing.event.DocumentEvent e) {
+                controller.changed();
+            }
+        });
     }
 
     /**
@@ -77,14 +88,38 @@ final class PhoebusPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExaminarActionPerformed
-        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
-        chooser.setDialogTitle("Seleccionar ejecutable de CS-Studio Phoebus");
-        chooser.setFileSelectionMode(javax.swing.JFileChooser.FILES_ONLY);
 
-        if (chooser.showOpenDialog(this) == javax.swing.JFileChooser.APPROVE_OPTION) {
-            // Coloca la ruta seleccionada en el campo de texto
-            txtRutaPhoebus.setText(chooser.getSelectedFile().getAbsolutePath());
+        boolean esWindows = System.getProperty("os.name").toLowerCase().contains("win");
+        String extensionRequerida = esWindows ? "bat" : "sh";
+        String descripcionFiltro = esWindows ? "Script de Windows (*.bat)" : "Script de Linux/Unix (*.sh)";
+
+        org.openide.filesystems.FileChooserBuilder builder = new org.openide.filesystems.FileChooserBuilder("DirectorioPhoebus")
+                .setTitle("Seleccionar ejecutable de CS-Studio Phoebus")
+                .setFilesOnly(true);
+
+        javax.swing.filechooser.FileNameExtensionFilter filtro
+                = new javax.swing.filechooser.FileNameExtensionFilter(descripcionFiltro, extensionRequerida);
+        builder.setFileFilter(filtro);
+
+        java.io.File archivoSeleccionado = builder.showOpenDialog();
+
+        if (archivoSeleccionado != null) {
+            String ruta = archivoSeleccionado.getAbsolutePath();
+
+            if (!ruta.toLowerCase().endsWith("." + extensionRequerida)) {
+                org.openide.DialogDisplayer.getDefault().notify(
+                        new org.openide.NotifyDescriptor.Message(
+                                "Archivo inválido. En este sistema operativo debe seleccionar un archivo con extensión ." + extensionRequerida,
+                                org.openide.NotifyDescriptor.WARNING_MESSAGE
+                        )
+                );
+                return; 
+            }
+
+            txtRutaPhoebus.setText(ruta);
         }
+
+
     }//GEN-LAST:event_btnExaminarActionPerformed
 
     public String getRutaPhoebus() {
