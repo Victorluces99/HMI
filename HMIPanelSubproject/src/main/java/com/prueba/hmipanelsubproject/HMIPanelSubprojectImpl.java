@@ -6,7 +6,6 @@ package com.prueba.hmipanelsubproject;
 
 import com.prueba.hmipanelsubproject.action.HMIPanelCompileAction;
 import com.prueba.hmipanelsubproject.action.HMIPanelImportAction;
-//import com.prueba.hmipanelsubproject.action.HMIPanelImportAction;
 import java.awt.Image;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ProjectInformation;
 import org.netbeans.spi.project.ProjectState;
 import org.netbeans.spi.project.ui.LogicalViewProvider;
-import org.netbeans.spi.project.ui.support.CommonProjectActions;
 import org.netbeans.spi.project.ui.support.NodeFactorySupport;
 import org.openide.filesystems.FileObject;
 import org.openide.loaders.DataFolder;

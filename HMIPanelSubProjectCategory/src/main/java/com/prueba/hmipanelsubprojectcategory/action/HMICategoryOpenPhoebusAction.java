@@ -4,7 +4,7 @@
  */
 package com.prueba.hmipanelsubprojectcategory.action;
 
-import java.awt.Desktop;
+import com.hmi.configphoebus.PhoebusOptionsPanelController;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +18,7 @@ import org.openide.util.RequestProcessor;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.UUID;
+
 
 public class HMICategoryOpenPhoebusAction extends AbstractAction {
 
@@ -44,20 +45,35 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
     }
 
     private void OpenNativeBob(FileObject nuevoArchivoBob) {
-
         File file = FileUtil.toFile(nuevoArchivoBob);
         if (file == null) {
             return;
         }
+        java.util.prefs.Preferences prefs = org.openide.util.NbPreferences.forModule(PhoebusOptionsPanelController.class);
+        String rutaPhoebus = prefs.get("phoebus.path", "");
+
+        if (rutaPhoebus.isEmpty()) {
+            org.openide.DialogDisplayer.getDefault().notify(
+                    new org.openide.NotifyDescriptor.Message("Por favor, configure la ruta de Phoebus en Tools -> Options.")
+            );
+            return; // Detiene el flujo si el usuario no ha configurado la herramienta
+        }
 
         try {
             OverwriteMemento(file);
-            //TODO: Cambiar para usar la variable de entorno
-            //Abrir usando el programa predeterminado del sistema.
-            if (Desktop.isDesktopSupported()) {
-                Desktop.getDesktop().open(file);
-            }
+            ProcessBuilder pb = new ProcessBuilder(
+                    rutaPhoebus,
+                    "-nosplash" // Evita el splash screen inicial
+            );
+
+            pb.redirectErrorStream(true);
+            pb.start();
+            System.out.println("Phoebus lanzado con éxito utilizando memento para: " + file.getName());
+
         } catch (Exception ex) {
+            org.openide.DialogDisplayer.getDefault().notify(
+                    new org.openide.NotifyDescriptor.Message("Error al intentar procesar o ejecutar Phoebus: " + ex.getMessage())
+            );
             Exceptions.printStackTrace(ex);
         }
     }

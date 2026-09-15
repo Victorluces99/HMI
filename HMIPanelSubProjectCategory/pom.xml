@@ -170,6 +170,12 @@
             <artifactId>org-netbeans-core-multiview</artifactId>
             <version>${netbeans.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.hmi</groupId>
+            <artifactId>ConfigPhoebus</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <type>jar</type>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

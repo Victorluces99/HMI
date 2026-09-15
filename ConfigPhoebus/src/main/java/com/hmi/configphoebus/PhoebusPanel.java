@@ -4,6 +4,8 @@
  */
 package com.hmi.configphoebus;
 
+import javax.swing.JTextField;
+
 final class PhoebusPanel extends javax.swing.JPanel {
 
     private final PhoebusOptionsPanelController controller;
@@ -12,6 +14,11 @@ final class PhoebusPanel extends javax.swing.JPanel {
         this.controller = controller;
         initComponents();
         // TODO listen to changes in form fields and call controller.changed()
+         txtRutaPhoebus.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+        @Override public void insertUpdate(javax.swing.event.DocumentEvent e) { controller.changed(); }
+        @Override public void removeUpdate(javax.swing.event.DocumentEvent e) { controller.changed(); }
+        @Override public void changedUpdate(javax.swing.event.DocumentEvent e) { controller.changed(); }
+    });
     }
 
     /**
@@ -22,17 +29,75 @@ final class PhoebusPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        txtRutaPhoebus = new javax.swing.JTextField();
+        btnExaminar = new javax.swing.JButton();
+
+        org.openide.awt.Mnemonics.setLocalizedText(jLabel1, org.openide.util.NbBundle.getMessage(PhoebusPanel.class, "PhoebusPanel.jLabel1.text")); // NOI18N
+
+        txtRutaPhoebus.setText(org.openide.util.NbBundle.getMessage(PhoebusPanel.class, "PhoebusPanel.txtRutaPhoebus.text")); // NOI18N
+        txtRutaPhoebus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRutaPhoebusActionPerformed(evt);
+            }
+        });
+
+        org.openide.awt.Mnemonics.setLocalizedText(btnExaminar, org.openide.util.NbBundle.getMessage(PhoebusPanel.class, "PhoebusPanel.btnExaminar.text")); // NOI18N
+        btnExaminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExaminarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 202, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtRutaPhoebus, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnExaminar))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 68, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRutaPhoebus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExaminar))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExaminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExaminarActionPerformed
+        javax.swing.JFileChooser chooser = new javax.swing.JFileChooser();
+        chooser.setDialogTitle("Seleccionar ejecutable de CS-Studio Phoebus");
+        chooser.setFileSelectionMode(javax.swing.JFileChooser.FILES_ONLY);
+
+        if (chooser.showOpenDialog(this) == javax.swing.JFileChooser.APPROVE_OPTION) {
+            // Coloca la ruta seleccionada en el campo de texto
+            txtRutaPhoebus.setText(chooser.getSelectedFile().getAbsolutePath());
+        }
+    }//GEN-LAST:event_btnExaminarActionPerformed
+
+    public String getRutaPhoebus() {
+        return txtRutaPhoebus.getText();
+    }
+
+    public void setRutaPhoebus(String ruta) {
+        txtRutaPhoebus.setText(ruta);
+    }
+
+    private void txtRutaPhoebusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRutaPhoebusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtRutaPhoebusActionPerformed
 
     void load() {
         // TODO read settings and initialize GUI
@@ -60,5 +125,8 @@ final class PhoebusPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExaminar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtRutaPhoebus;
     // End of variables declaration//GEN-END:variables
 }
