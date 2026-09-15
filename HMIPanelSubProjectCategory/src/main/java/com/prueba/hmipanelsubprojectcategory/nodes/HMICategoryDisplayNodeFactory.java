@@ -35,9 +35,9 @@ public class HMICategoryDisplayNodeFactory implements NodeFactory {
         FileObject projectDir = project.getProjectDirectory();
 
         // Solo mostrar si la carpeta se llama "Image"
-        if (!"Image".equalsIgnoreCase(projectDir.getName())) {
-            return NodeFactorySupport.fixedNodeList();
-        }
+//        if (!"Image".equalsIgnoreCase(projectDir.getName())) {
+//            return NodeFactorySupport.fixedNodeList();
+//        }
 
         return new HMICategoryDisplayNodeList(projectDir);
     }

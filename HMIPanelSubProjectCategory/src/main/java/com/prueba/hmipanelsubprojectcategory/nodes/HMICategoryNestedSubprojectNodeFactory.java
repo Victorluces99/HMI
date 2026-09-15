@@ -4,8 +4,6 @@
  */
 package com.prueba.hmipanelsubprojectcategory.nodes;
 
-import com.prueba.hmipanelsubprojectcategory.HMIPanelCategorySubprojectImpl;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.event.ChangeEvent;
@@ -14,7 +12,6 @@ import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ProjectManager;
 import org.netbeans.spi.project.ui.LogicalViewProvider;
 import org.netbeans.spi.project.ui.support.NodeFactory;
-import org.netbeans.spi.project.ui.support.NodeFactorySupport;
 import org.netbeans.spi.project.ui.support.NodeList;
 import org.openide.filesystems.FileAttributeEvent;
 import org.openide.filesystems.FileChangeListener;
@@ -24,36 +21,49 @@ import org.openide.filesystems.FileRenameEvent;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
-@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubproject", position = 110)
-public class HMIPanelCategorySubprojectNodeFactory implements NodeFactory {
-
+@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 200)
+public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
+    
     private static final String CATEGORY_FILE = "category.cfg";
-
+    
     @Override
     public NodeList<?> createNodes(Project project) {
-        return new CategoryNodeList(project.getProjectDirectory());
+        return new NestedCategoryNodeList(project.getProjectDirectory());
     }
 
-    private static class CategoryNodeList implements NodeList<Project>, FileChangeListener {
+    private static class NestedCategoryNodeList implements NodeList<FileObject>, FileChangeListener {
 
-        private final FileObject dir;
+        private final FileObject folder;
         private final List<ChangeListener> listeners = new ArrayList<>();
-        private final List<Project> keys = new ArrayList<>();
+        private final List<FileObject> keys = new ArrayList<>();
 
-        public CategoryNodeList(FileObject dir) {
-            this.dir = dir;
+        public NestedCategoryNodeList(FileObject folder) {
+            this.folder = folder;
             refreshKeys();
         }
 
         @Override
-        public List<Project> keys() {
+        public List<FileObject> keys() {
             return keys;
         }
 
         @Override
-        public Node node(Project key) {
-            LogicalViewProvider lvp = key.getLookup().lookup(LogicalViewProvider.class);
-            return (lvp != null) ? lvp.createLogicalView() : null;
+        public Node node(FileObject key) {
+            try {
+                if (key == null || !key.isFolder()) {
+                    return null;
+                }
+                Project subProject = ProjectManager.getDefault().findProject(key);
+                if (subProject == null) {
+                    return null;
+                }
+                LogicalViewProvider lvp = subProject.getLookup()
+                        .lookup(LogicalViewProvider.class);
+                return (lvp != null) ? lvp.createLogicalView() : null;
+            } catch (Exception ex) {
+                Exceptions.printStackTrace(ex);
+                return null;
+            }
         }
 
         @Override
@@ -75,28 +85,20 @@ public class HMIPanelCategorySubprojectNodeFactory implements NodeFactory {
 
         @Override
         public void addNotify() {
-            dir.addFileChangeListener(this);
+            folder.addFileChangeListener(this);
             refreshKeys();
         }
 
         @Override
         public void removeNotify() {
-            dir.removeFileChangeListener(this);
+            folder.removeFileChangeListener(this);
         }
 
         private void refreshKeys() {
             keys.clear();
-            for (FileObject child : dir.getChildren()) {
-                if (!child.isFolder()) {
-                    continue;
-                }
-                try {
-                    Project p = ProjectManager.getDefault().findProject(child);
-                    if (p instanceof HMIPanelCategorySubprojectImpl) {
-                        keys.add(p);
-                    }
-                } catch (IOException | IllegalArgumentException ex) {
-                    Exceptions.printStackTrace(ex);
+            for (FileObject child : folder.getChildren()) {
+                if (child.isFolder() && child.getFileObject(CATEGORY_FILE) != null) {
+                    keys.add(child);
                 }
             }
             fireChange();

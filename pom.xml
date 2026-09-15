@@ -26,6 +26,7 @@
         <module>HMISubprojectLanguage</module>
         <module>HMISubprojectEstructuras</module>
         <module>HMISubprojectVersionsManage</module>
+        <module>ConfigPhoebus</module>
     </modules>
 
     <build>

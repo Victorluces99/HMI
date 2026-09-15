@@ -318,6 +318,21 @@
             <version>0.13.0-SNAPSHOT</version>
             <type>nbm</type>
         </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>HMIPanelSubproject</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>HMIPanelSubProjectCategory</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hmi</groupId>
+            <artifactId>ConfigPhoebus</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -325,6 +340,7 @@
             <plugin>
                 <groupId>org.apache.netbeans.utilities</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
+                 <extensions>true</extensions>
                 <configuration>
                     <etcConfFile>src/main/resources/hmi.conf</etcConfFile>
                 </configuration>

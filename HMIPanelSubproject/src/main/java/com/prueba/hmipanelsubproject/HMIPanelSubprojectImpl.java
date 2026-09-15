@@ -5,6 +5,7 @@
 package com.prueba.hmipanelsubproject;
 
 import com.prueba.hmipanelsubproject.action.HMIPanelCompileAction;
+import com.prueba.hmipanelsubproject.action.HMIPanelImportAction;
 //import com.prueba.hmipanelsubproject.action.HMIPanelImportAction;
 import java.awt.Image;
 import java.beans.PropertyChangeListener;
@@ -169,7 +170,7 @@ public class HMIPanelSubprojectImpl implements Project {
                 
                 List<Action> allActions = new ArrayList<>();
                 allActions.add(new HMIPanelCompileAction(projectDir));
-//                allActions.add(new HMIPanelImportAction(projectDir)); 
+                allActions.add(new HMIPanelImportAction(projectDir)); 
                 return allActions.toArray(new Action[0]);
             }
 
