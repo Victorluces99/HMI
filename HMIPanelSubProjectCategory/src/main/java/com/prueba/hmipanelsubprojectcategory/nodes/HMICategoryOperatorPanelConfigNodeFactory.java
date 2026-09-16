@@ -27,7 +27,7 @@ import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
 
-@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 100)
+@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 150)
 public class HMICategoryOperatorPanelConfigNodeFactory implements NodeFactory {
 
     @Override

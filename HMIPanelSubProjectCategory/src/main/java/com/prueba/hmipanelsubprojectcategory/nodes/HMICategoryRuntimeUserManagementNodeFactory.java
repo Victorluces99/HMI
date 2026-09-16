@@ -26,7 +26,7 @@ import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
-
+@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 140)
 public class HMICategoryRuntimeUserManagementNodeFactory implements NodeFactory {
 
     

@@ -21,7 +21,7 @@ import org.openide.util.Exceptions;
  *
  * @author Víctor Luces
  */
-@NodeFactory.Registration(projectType = "com-prueba-hmiproject", position = 20)
+@NodeFactory.Registration(projectType = "com-prueba-hmiproject", position = 40)
 public class HMISubprojectLanguageNodeFactory implements NodeFactory {
 
     @Override

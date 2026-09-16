@@ -24,7 +24,7 @@ import org.openide.filesystems.FileRenameEvent;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
-@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubproject", position = 110)
+@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubproject", position = 50)
 public class HMIPanelCategorySubprojectNodeFactory implements NodeFactory {
 
     private static final String CATEGORY_FILE = "category.cfg";

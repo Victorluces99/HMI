@@ -6,6 +6,7 @@ package com.prueba.hmipanelsubprojectcategory.nodes;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.Action;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import org.netbeans.api.project.Project;
@@ -18,14 +19,18 @@ import org.openide.filesystems.FileChangeListener;
 import org.openide.filesystems.FileEvent;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileRenameEvent;
+import org.openide.loaders.DataNode;
+import org.openide.loaders.DataObject;
+import org.openide.loaders.DataObjectNotFoundException;
+import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
 @NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 200)
 public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
-    
+
     private static final String CATEGORY_FILE = "category.cfg";
-    
+
     @Override
     public NodeList<?> createNodes(Project project) {
         return new NestedCategoryNodeList(project.getProjectDirectory());
@@ -64,6 +69,15 @@ public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
                 Exceptions.printStackTrace(ex);
                 return null;
             }
+//            try {
+//
+//                DataObject dataObj = DataObject.find(key);
+//                return new HMINestedNode(dataObj, key);
+//
+//            } catch (DataObjectNotFoundException ex) {
+//                Exceptions.printStackTrace(ex);
+//                return null;
+//            }
         }
 
         @Override
@@ -134,6 +148,36 @@ public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
         @Override
         public void fileAttributeChanged(FileAttributeEvent fae) {
             //TODO
+        }
+
+        private static class HMINestedNode extends DataNode {
+
+            private final FileObject fileObject;
+
+            public HMINestedNode(DataObject dataObject, FileObject fileObject) {
+                super(dataObject, Children.LEAF);
+                this.fileObject = fileObject;
+
+                String iconBase = "com/prueba/hmipanelsubprojectcategory/ftype/icon2.png";
+                if (iconBase != null && !iconBase.isEmpty()) {
+                    setIconBaseWithExtension(iconBase);
+                }
+            }
+
+            @Override
+            public Action[] getActions(boolean context) {
+                Action[] defaultActions = super.getActions(context);
+
+                List<Action> allActions = new ArrayList<>();
+//                allActions.add(new HMICategoryOpenPhoebusAction(fileObject));
+//                allActions.add(null);
+//                allActions.add(new HMICategoryDuplicateDisplayAction(fileObject));
+//                allActions.add(null);
+                for (Action action : defaultActions) {
+                    allActions.add(action);
+                }
+                return allActions.toArray(new Action[0]);
+            }
         }
     }
 }

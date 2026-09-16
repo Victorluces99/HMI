@@ -24,7 +24,7 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
     private final FileObject bobFile;
     private static final String MEMENTO_TEMPLATE
             = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n"
-            + "<memento default_application=\"Display Editor\" last_opened_file=\"\" show_menu=\"true\" show_statusbar=\"true\" show_tabs=\"true\" show_toolbar=\"true\">\n"
+            + "<memento default_application=\"Display Editor\" last_opened_file=\"\" show_menu=\"false\" show_statusbar=\"false\" show_tabs=\"false\" show_toolbar=\"false\">\n"
             + "    <DockStage_MAIN height=\"1000.0\" maximized=\"true\" width=\"1296.0\" x=\"-8.0\" y=\"-8.0\">\n"
             + "        <pane selected=\"0\">\n"
             + "            <DockItem_%ID% application=\"display_editor\" user_name=\"%USER%\" input_uri=\"%URI%\"/>\n"
@@ -100,7 +100,6 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
 
             pb.redirectErrorStream(true);
             pb.start();
-            System.out.println("Phoebus lanzado de forma segura para: " + file.getName());
 
         } catch (Exception ex) {
             org.openide.DialogDisplayer.getDefault().notify(
@@ -115,47 +114,19 @@ public class HMICategoryOpenPhoebusAction extends AbstractAction {
 
         String userHome = System.getProperty("user.home");
         Path rutaMemento = Paths.get(userHome, ".phoebus", "memento");
-        File mementoFile = rutaMemento.toFile();
-
-        //Construir la URI del archivo (siempre con / y escapada para XML)
+        //Construir la URI del archivo (siempre con / y la funcion XmlEscaping)
         String nuevaUri = file.toURI().toString();
         nuevaUri = XmlEscaping(nuevaUri);
-        //Si el memento no existe, crearlo con su estructura base y el usuario
-        if (!mementoFile.exists()) {
-            String user = System.getProperty("user.name", "user");
-            String uid = "DockItem_" + UUID.randomUUID().toString().replace("-", "_");
-            String base = MEMENTO_TEMPLATE
-                    .replace("%ID%", uid)
-                    .replace("%USER%", XmlEscaping(user))
-                    .replace("%URI%", nuevaUri);
-            Files.createDirectories(rutaMemento.getParent());
-            Files.write(rutaMemento, base.getBytes(StandardCharsets.UTF_8));
-            System.out.println("[abrirBobNativo] Memento creado en: " + rutaMemento);
-            return;
-        }
-
-        /*Leer todo el contenido del memento como un arreglo de bytes y
-        los convierte a una cadena de texto */
-        String contenido = new String(Files.readAllBytes(rutaMemento), StandardCharsets.UTF_8);
-        System.out.println("[abrirBobNativo] Contenido ANTES: " + contenido);
-        System.out.println("[abrirBobNativo] Nueva URI: " + nuevaUri);
-
-        //Reemplazar el input_uri anterior por el nuevo y en caso de que no exita lo agrega.
-        if (contenido.contains("input_uri=")) {
-            contenido = contenido.replaceFirst("input_uri=\"[^\"]*\"", "input_uri=\"" + nuevaUri + "\"");
-        } else {
-            // Recrear memento desde plantilla
-            String user = System.getProperty("user.name", "user");
-            String uid = "DockItem_" + UUID.randomUUID().toString().replace("-", "_");
-            contenido = MEMENTO_TEMPLATE
-                    .replace("%ID%", uid)
-                    .replace("%USER%", XmlEscaping(user))
-                    .replace("%URI%", nuevaUri);
-        }
-        System.out.println("[abrirBobNativo] Contenido DESPUÉS: " + contenido);
-
-        //Sobrescribe el archivo memento con la nueva info
-        Files.write(rutaMemento, contenido.getBytes(StandardCharsets.UTF_8));
+        String user = System.getProperty("user.name", "user");
+        String uid = "DockItem_" + UUID.randomUUID().toString().replace("-", "_");
+        String memento = MEMENTO_TEMPLATE
+                .replace("%ID%", uid)
+                .replace("%USER%", XmlEscaping(user))
+                .replace("%URI%", nuevaUri);
+        Files.createDirectories(rutaMemento.getParent());
+        Files.write(rutaMemento, memento.getBytes(StandardCharsets.UTF_8));
+        System.out.println("[abrirBobNativo] Memento creado en: " + rutaMemento
+                + " contenido: " + memento);
     }
 
     private static String XmlEscaping(String s) {

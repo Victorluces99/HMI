@@ -52,50 +52,38 @@ public class HMIPanelImportAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // 1. Ventana de exploración (solo .xml)
         FileDialog chooser = new FileDialog((Frame) null, "SELECT FILE", FileDialog.LOAD);
         chooser.setVisible(true);
         File[] selected = chooser.getFiles();
         if (selected == null || selected.length == 0) {
-            return; // usuario canceló
+            return;
         }
         File file = selected[0];
         Storage storage = new Storage(file);
         S88PlantModel modelo = S88ProjectServices
                 .createRepository("xml", storage).loadPlant();
-
-        // 2. Resolver la carpeta "image" dentro del panel (crear si no existe)
         FileObject imageFo = panel.getFileObject("image");
-        if (imageFo == null || !imageFo.isFolder()) {
-            try {
-                imageFo = panel.createFolder("image");
-            } catch (IOException ex) {
-                Exceptions.printStackTrace(ex);
-                return;
-            }
-        }
 
-        // 3. La carpeta "image" actúa como categoría contenedora
-        try {
-            if (imageFo.getFileObject("category.cfg") == null) {
-                imageFo.createData("category.cfg");
-            }
-        } catch (IOException ex) {
-            Exceptions.printStackTrace(ex);
-        }
+//        try {
+//            if (imageFo.getFileObject("category.cfg") == null) {
+//                imageFo.createData("category.cfg");
+//            }
+//        } catch (IOException ex) {
+//            Exceptions.printStackTrace(ex);
+//        }
 
-        // 4. Omitir el nodo raíz: iterar sus hijos con "image" como base
         S88Element root = modelo.getRoot();
         if (root != null && root.getChildren() != null) {
             for (S88Element child : root.getChildren()) {
-                preOrderIterativo(child, imageFo);
+                reversechildstack(child, imageFo);
             }
         }
 
-        // 5. Red de seguridad: refrescar el filesystem del panel
         File panelFile = FileUtil.toFile(panel);
+        System.out.println("es panel:" + panelFile);
         if (panelFile != null) {
-            FileUtil.refreshFor(panelFile);
+//            FileUtil.refreshFor(panelFile);
+            FileUtil.refreshAll();
         }
     }
 
@@ -116,33 +104,7 @@ public class HMIPanelImportAction extends AbstractAction {
         }
     }
 
-    private Object getPropertyInsensitive(S88Element node, String key) {
-        if (node == null || key == null) {
-            return null;
-        }
-
-        Object val = node.getProperty(key);
-        if (val != null && !"".equals(val)) {
-            return val;
-        }
-
-        String[] variants = {
-            key.toLowerCase(),
-            key.toUpperCase(),
-            key.substring(0, 1).toUpperCase() + key.substring(1).toLowerCase()
-        };
-
-        for (String variant : variants) {
-            val = node.getProperty(variant);
-            if (val != null && !"".equals(val)) {
-                return val;
-            }
-        }
-
-        return null;
-    }
-
-    public void preOrderIterativo(S88Element root, FileObject baseDir) {
+    public void reversechildstack(S88Element root, FileObject baseDir) {
         if (root == null || baseDir == null) {
             return;
         }
@@ -154,7 +116,7 @@ public class HMIPanelImportAction extends AbstractAction {
         dirMap.put(root, baseDir);
 
         while (!stack.isEmpty()) {
-            S88Element node = stack.poll();
+            S88Element node = stack.pop();
             FileObject parentDir = dirMap.remove(node);
 
             if (parentDir == null) {
@@ -166,16 +128,8 @@ public class HMIPanelImportAction extends AbstractAction {
                 createCfgFile(currentDir);
 
                 System.out.println("Propiedades en " + node.getId() + ": " + node.getProperties());
-
-                Object checkValue = getPropertyInsensitive(node, "Check");
-                boolean isChecked = false;
-                if (checkValue instanceof Boolean) {
-                    isChecked = (Boolean) checkValue;
-                } else if (checkValue != null) {
-                    isChecked = "true".equalsIgnoreCase(checkValue.toString().trim());
-                }
-
-                if (isChecked) {
+                System.out.println("check: " + node.isCheck());
+                if (node.isCheck()) {
                     System.out.println("-> Creando BOB File para: " + node.getId());
                     createBobFile(node, currentDir);
                 }

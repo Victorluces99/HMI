@@ -17,7 +17,7 @@ import org.openide.filesystems.FileObject;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
-@NodeFactory.Registration(projectType = "com-prueba-hmiproject", position = 110)
+@NodeFactory.Registration(projectType = "com-prueba-hmiproject", position = 20)
 public class HMISubprojectVersionsManageNodeFactory implements NodeFactory{
 
     @Override

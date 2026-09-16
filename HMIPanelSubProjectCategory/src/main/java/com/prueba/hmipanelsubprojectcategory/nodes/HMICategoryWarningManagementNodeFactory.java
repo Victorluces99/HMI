@@ -26,7 +26,7 @@ import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
 
-@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 100)
+@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 80)
 public class HMICategoryWarningManagementNodeFactory implements NodeFactory{
 @Override
     public NodeList<?> createNodes(Project project) {

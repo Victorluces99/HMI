@@ -31,7 +31,7 @@ import org.openide.util.Exceptions;
  *
  * @author Victor
  */
-@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 100)
+@NodeFactory.Registration(projectType = "com-prueba-hmipanelsubprojectcategory", position = 130)
 public class HMICategoryTextAndListChartsNodeFactory implements NodeFactory {
     @Override
     public NodeList<?> createNodes(Project project) {
