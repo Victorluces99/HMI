@@ -24,6 +24,7 @@ import org.apache.plc4x.malbec.s88.api.S88Element;
 import org.apache.plc4x.malbec.s88.api.S88PlantModel;
 import org.apache.plc4x.malbec.s88.api.S88Storage;
 import org.apache.plc4x.malbec.s88.plant.services.S88ProjectServices;
+import org.netbeans.api.project.ProjectManager;
 import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileUtil;
 import org.openide.util.Exceptions;
@@ -52,6 +53,10 @@ public class HMIPanelImportAction extends AbstractAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        importPlant();
+    }
+
+    private void importPlant() {
         FileDialog chooser = new FileDialog((Frame) null, "SELECT FILE", FileDialog.LOAD);
         chooser.setVisible(true);
         File[] selected = chooser.getFiles();
@@ -62,16 +67,13 @@ public class HMIPanelImportAction extends AbstractAction {
         Storage storage = new Storage(file);
         S88PlantModel modelo = S88ProjectServices
                 .createRepository("xml", storage).loadPlant();
+
+        File panelFile = FileUtil.toFile(panel);
+        if (panelFile != null) {
+            FileUtil.refreshFor(panelFile);
+        }
+
         FileObject imageFo = panel.getFileObject("image");
-
-//        try {
-//            if (imageFo.getFileObject("category.cfg") == null) {
-//                imageFo.createData("category.cfg");
-//            }
-//        } catch (IOException ex) {
-//            Exceptions.printStackTrace(ex);
-//        }
-
         S88Element root = modelo.getRoot();
         if (root != null && root.getChildren() != null) {
             for (S88Element child : root.getChildren()) {
@@ -79,11 +81,9 @@ public class HMIPanelImportAction extends AbstractAction {
             }
         }
 
-        File panelFile = FileUtil.toFile(panel);
-        System.out.println("es panel:" + panelFile);
         if (panelFile != null) {
-//            FileUtil.refreshFor(panelFile);
             FileUtil.refreshAll();
+            ProjectManager.getDefault().clearNonProjectCache();
         }
     }
 

@@ -164,7 +164,7 @@ public class HMIPanelCategorySubprojectImpl implements Project {
                     case "template.bob" ->
                         new Action[]{
                             new HMICategoryCreateDisplayAction(this.project),
-                            new HMICategoryOpenPhoebusAction(this.project.getProjectDirectory())
+//                            new HMICategoryOpenPhoebusAction(this.project.getProjectDirectory())
                         };
 //                    case "comm.merlot" ->
 //                        new HMICategoryCreateCommunicationAction(this.project);

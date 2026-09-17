@@ -21,7 +21,6 @@ import org.openide.filesystems.FileObject;
 import org.openide.filesystems.FileRenameEvent;
 import org.openide.loaders.DataNode;
 import org.openide.loaders.DataObject;
-import org.openide.loaders.DataObjectNotFoundException;
 import org.openide.nodes.Children;
 import org.openide.nodes.Node;
 import org.openide.util.Exceptions;
@@ -69,15 +68,6 @@ public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
                 Exceptions.printStackTrace(ex);
                 return null;
             }
-//            try {
-//
-//                DataObject dataObj = DataObject.find(key);
-//                return new HMINestedNode(dataObj, key);
-//
-//            } catch (DataObjectNotFoundException ex) {
-//                Exceptions.printStackTrace(ex);
-//                return null;
-//            }
         }
 
         @Override
@@ -97,15 +87,25 @@ public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
             }
         }
 
+//        @Override
+//        public void addNotify() {
+//            folder.addFileChangeListener(this);
+//            refreshKeys();
+//        }
+//
+//        @Override
+//        public void removeNotify() {
+//            folder.removeFileChangeListener(this);
+//        }
         @Override
         public void addNotify() {
-            folder.addFileChangeListener(this);
+            folder.addRecursiveListener(this);
             refreshKeys();
         }
 
         @Override
         public void removeNotify() {
-            folder.removeFileChangeListener(this);
+            folder.removeRecursiveListener(this);
         }
 
         private void refreshKeys() {
@@ -123,11 +123,15 @@ public class HMICategoryNestedSubprojectNodeFactory implements NodeFactory {
             refreshKeys();
         }
 
+//        @Override
+//        public void fileDataCreated(FileEvent fe) {
+//            if (CATEGORY_FILE.equalsIgnoreCase(fe.getFile().getNameExt())) {
+//                refreshKeys();
+//            }
+//        }
         @Override
         public void fileDataCreated(FileEvent fe) {
-            if (CATEGORY_FILE.equalsIgnoreCase(fe.getFile().getNameExt())) {
-                refreshKeys();
-            }
+            refreshKeys();
         }
 
         @Override

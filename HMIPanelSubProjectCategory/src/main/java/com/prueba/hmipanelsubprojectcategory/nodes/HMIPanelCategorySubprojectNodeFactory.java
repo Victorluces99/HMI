@@ -73,15 +73,25 @@ public class HMIPanelCategorySubprojectNodeFactory implements NodeFactory {
             }
         }
 
+//        @Override
+//        public void addNotify() {
+//            dir.addFileChangeListener(this);
+//            refreshKeys();
+//        }
+//
+//        @Override
+//        public void removeNotify() {
+//            dir.removeFileChangeListener(this);
+//        }
         @Override
         public void addNotify() {
-            dir.addFileChangeListener(this);
+            dir.addRecursiveListener(this);
             refreshKeys();
         }
 
         @Override
         public void removeNotify() {
-            dir.removeFileChangeListener(this);
+            dir.removeRecursiveListener(this);
         }
 
         private void refreshKeys() {
@@ -107,11 +117,15 @@ public class HMIPanelCategorySubprojectNodeFactory implements NodeFactory {
             refreshKeys();
         }
 
+//        @Override
+//        public void fileDataCreated(FileEvent fe) {
+//            if (CATEGORY_FILE.equalsIgnoreCase(fe.getFile().getNameExt())) {
+//                refreshKeys();
+//            }
+//        }
         @Override
         public void fileDataCreated(FileEvent fe) {
-            if (CATEGORY_FILE.equalsIgnoreCase(fe.getFile().getNameExt())) {
-                refreshKeys();
-            }
+            refreshKeys();
         }
 
         @Override
